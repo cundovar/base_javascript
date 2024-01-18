@@ -1,0 +1,65 @@
+.total{
+    position: relative;
+    margin: auto;
+    width: 50%;
+  height: 35rem;
+  border: 1px rgb(72, 255, 0) solid;
+}
+
+.full-img{
+    position: relative;
+    margin: auto;
+    width: 100%;
+  height: 35rem;
+  border: 1px rgb(72, 255, 0) solid;
+  
+}
+.full-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 5;
+}
+.full-img img,.overlay,.dark,.light{
+    position: absolute;
+    
+}
+
+.overlay-bg{
+    background-color: black;
+    z-index: 98;
+    opacity: 0.3;
+  
+}
+.overlay{
+    border: 1px rgb(255, 5, 255) solid;
+    width: 100%;
+    height: 100%;
+    z-index: 97;
+ 
+    
+   
+}
+.light{
+    z-index: 99;
+
+}
+.dark{
+    z-index: 99;
+}
+.thumb-bar img{
+    position: relative;
+    height: 100%;
+    z-index: 99;
+    width: 20%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.thumb-bar{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    
+}
+

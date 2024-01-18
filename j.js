@@ -118,5 +118,34 @@ function revese_click() {
 
 
 
+// animation svg
 
 
+document.addEventListener("DOMContentLoaded",function(){
+  // Sélectionnez l'élément avec svg.js
+  const monRectangle = SVG(".bouge");
+  const monRectangle2 = SVG(".bouge2");
+  monRectangle.animate(1000).move(300,0)
+  monRectangle2.animate(1000).move(-300,0)
+  .animate(1000).move(0,0)
+    // Fonction pour l'animation du deuxième rectangle
+    const animationRectangle2 = (iteration = 0) => {
+      if(iteration<3){
+        monRectangle2.animate(1000).move(0,-200)
+                    .animate(1000).move(0,200)
+          .after(() => {
+            // Après avoir terminé l'animation, répétez la fonction
+            animationRectangle2(iteration + 1);
+          });
+
+      }
+    };
+
+    // Exécutez la première itération de l'animation
+    animationRectangle2();
+
+  
+
+  
+ 
+})

@@ -1,5 +1,5 @@
 body{
-    background-color: black;
+    background-color: rgb(206, 25, 25);
     color: azure;
 }
 
@@ -32,3 +32,51 @@ justify-content: center;
 .m3{
    margin: 1rem;
 }
+
+
+/* animation */
+
+#rectangle_jaune{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300%;
+        /* animation: rectangle_jaune 1000ms ease-out 2s infinite; */
+        animation: orbit 30s linear infinite;
+
+}
+
+
+
+  @keyframes orbit {
+    0% {
+      transform: translate(-50%, -50%)rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%)rotate(360deg);
+    }
+  }
+
+
+  .bg-animation{
+    height: 10rem;
+  width: 10rem;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid red;
+  z-index: 99;
+  }
+  .bg-animation svg{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+    width: 90%;
+    animation: orbit 30s linear infinite;
+  }
+
+  .bg-animation svg path{
+    fill:rgba(red, green, blue, alpha) ;
+  }

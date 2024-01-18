@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #myDiv {
+            width: 100px;
+            height: 100px;
+          border: 1px solid red;
+        }
+
+        .overlay-bg {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<div id="myDiv" ></div>
+<button id="myDiv2" onclick="toggleBackgroundColor()"></div>
+
+<script>
+    const myDiv = document.getElementById('myDiv');
+
+    function toggleBackgroundColor() {
+
+       
+            myDiv.classList.toggle('overlay-bg');
+      
+    }
+</script>
+
+</body>
+</html>
