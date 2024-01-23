@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../prism.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>javascrpt orienté object</h1>
+    <h2>value type vs reference type</h2>
+    <pre class="language-js">
+        <code>
+            let x=10
+            let y =x
+            
+            console.log(x,y)
+
+            // response = 10,10
+            x=20
+            console.log(x,y)
+            //response= 20 10
+            //*******reference type [object,type]*/
+            
+            let a = {valeur:10}
+            let b= a
+            console.log("reference type",a,b)
+            //response valeur 10 valeur 10
+            a.valeur=20
+            console.log("reference type2",a,b)
+            //response valeur 20 valeur 20
+
+        </code>
+    </pre>
+    <h2>object literal</h2>
+    <pre class="language-js">
+        <code>
+            // object literal [encaspulation]
+
+const utilisateur={
+
+    // on a les propriété :
+    // this fait référence à notre object
+    noms: "module louis",
+    email:"ab@gmail.com",
+    amis:['julien','cédric'],
+    login(){
+        console.log(`${this.email} est connecté`)
+    },
+    logout(){
+        console.log(`${this.email} est déconnecté`)
+    },
+
+}
+
+console.log('utilisateur',utilisateur)
+console.log(utilisateur.noms)
+console.log(utilisateur.email)
+//autre façon
+console.log(utilisateur['noms'])
+utilisateur.noms="justine justine"
+utilisateur['email']="e@gmail.com"
+console.log(utilisateur)
+        </code>
+    </pre>
+
+    <h2>factory function</h2>
+    <pre class="language-js">
+        <code>
+            // factory function c'est une maquette (model) pouir creer des objets
+
+const utilisateur =(nom,emails, ...amis)=>{
+
+    return{
+        nom,emails,amis,
+        login(){
+            console.log(`${emails} est connecté`)
+        },
+        logout(){
+            console.log(`${emails} pas connecté`)
+        }
+    }
+}
+const utils1=utilisateur('varas','cundo@dd.com','juju','antoine')
+const utils2=utilisateur('varass','cundsso@dd.com','jusju','azntsoine','gg')
+
+console.log("util1",utils1)
+console.log("util2",utils2)
+
+utils1.logout()
+utils2.login()
+        </code>
+    </pre>
+
+    <h2>constructeur</h2>
+
+    <pre class="language-js">
+        <code>
+            // constructor function: maquette (model) pour creation des objets
+//pas de crochet car on utise les this
+function Utilisateur(noms,emails,...amis){
+    this.noms =noms
+    this.emails =emails
+    this.amis=amis
+    this.login=function(){
+          console.log(`${emails} est connecté`)
+    }
+    this.logout=function(){
+        console.log(`${emails}pas connecté`)
+    }
+
+}
+// c'est une instance 
+const utils3= new Utilisateur('varas','gmail.com','ln','ln2')
+const utils4= new Utilisateur('vas','gml.com','l','l2')
+console.log('utils3')
+console.log('utils4')
+
+//acces aux methodes
+
+utils3.login()
+utils4.login()
+        </code>
+    </pre>
+
+    <h2>abstraction</h2>
+    <pre class="language-js">
+        <code>
+            //abstraction se baser sur l'essentiel
+
+            function Employe(noms, ages, sexe, salaire) {
+              this.noms = noms;
+              this.ages = ages;
+              this.sexe = sexe;
+              this.salaire = salaire;
+              //detail, privé, on ne peux pas accéder dpuis l'exterieur
+              const allocation = 70;
+              const primeDeRisque = 600;
+              //methode privé
+              const calculatrice = function () {
+                return salaire + allocation + primeDeRisque;
+              };
+            
+              // Méthode publique pour accéder à la calculatrice
+              this.calculerSalaireFinal = function () {
+                return calculatrice();
+              };
+              this.infoEmploye = function () {
+                console.log(`nom:${noms}`);
+                console.log(`sex:${sexe}`);
+                console.log(`salaire:${salaire}`);
+                console.log(`ages:${ages}`);
+                console.log(`Salaire final: ${calculatrice()}    `);
+              };
+            }
+            //l'instance
+            const Employe1 = new Employe("varas", "45", "male", 1200);
+            const Employe2 = new Employe("varhas", "4h5", "femelle", 12200);
+            //l'éssentielle
+            Employe1.infoEmploye();
+            Employe2.infoEmploye();
+            // Employe1.calculatrice() pas possible
+            
+
+        </code>
+    </pre>
+
+    <h2>class</h2>
+    <pre class="language-js">
+        <code>
+            class User{
+                //constructeur cest une fonction qui implémente les propriétés d'un objet
+                constructor(nom,mail,...amis){
+                    this.mail=mail
+                    this.amis=amis
+                    this.nom=nom
+                }
+                login(){
+                    console.log(`${this.nom} est connecté`)
+                }
+            }
+            
+            const User1 = new User("varas", "45", "male");
+            const User2 = new User("varhas", "4h5", "feme");
+            console.log(User1)
+            console.log(User2)
+            User2.login()
+        </code>
+    </pre>
+    <h2>heritage</h2>
+    <pre class="language-js">
+        <code></code>
+    </pre>
+
+
+    <script src="factory_functio.js"/>
+    <script src="objectLiteral.js"/>
+    <script src="valuetype.js"/>
+            <script src="../prism.js"></script>
+    </html>

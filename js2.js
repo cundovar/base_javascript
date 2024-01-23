@@ -56,6 +56,7 @@ let isBlack=false
 clikToMe.onclick=function(){
 if(isBlack){
     
+
     overlay.classList.remove('overlay-bg')
     clikToMe.textContent='lumière'
 }else{
@@ -65,4 +66,3 @@ if(isBlack){
 }
 isBlack = !isBlack;
 }
-
